@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout01"
+        android:orientation="horizontal"
+        android:background="@color/text_blue">
+        <ImageView
+            android:id="@+id/personEdit_zuo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="15"
+            android:src="@mipmap/zuo"
+            android:onClick="add"/>
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:layout_height="50dp"
+            android:textColor="@color/colorWhite"
+            android:text="用户详细信息"
+            android:background="@color/text_blue"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/login_input"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/et_id"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#00ffffff"
+            android:hint="请输入用户id"
+            android:maxLength="20"
+            android:paddingLeft="10dp"
+            android:textColor="#000000" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:background="@mipmap/divider_horizontal_line" />
+
+        <EditText
+            android:id="@+id/et_no"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#00ffffff"
+            android:hint="请输入用户no"
+            android:maxLength="20"
+            android:paddingLeft="10dp"
+            android:textColor="#000000" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:background="@mipmap/divider_horizontal_line" />
+
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#00ffffff"
+            android:hint="请输入用户姓名"
+            android:maxLength="20"
+            android:paddingLeft="10dp"
+            android:textColor="#000000" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:background="@mipmap/divider_horizontal_line" />
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#00ffffff"
+            android:hint="请输入用户电话"
+            android:maxLength="20"
+            android:paddingLeft="10dp"
+            android:textColor="#000000" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:background="@mipmap/divider_horizontal_line" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#00ffffff"
+            android:hint="请输入邮箱"
+            android:maxLength="20"
+            android:paddingLeft="10dp"
+            android:textColor="#000000" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:background="@mipmap/divider_horizontal_line" />
+
+        <EditText
+            android:id="@+id/et_address"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#00ffffff"
+            android:hint="请输入地址"
+            android:maxLength="20"
+            android:paddingLeft="10dp"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/text_blue"
+        android:onClick="edit"
+        android:text="提交用户信息"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF" />
+
+
+
+
+</LinearLayout>

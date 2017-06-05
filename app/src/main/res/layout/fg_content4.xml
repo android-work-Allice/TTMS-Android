@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout01"
+        android:orientation="horizontal"
+        android:background="@color/text_blue">
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:layout_height="50dp"
+            android:textColor="@color/colorWhite"
+            android:text="演出计划"
+            android:background="@color/text_blue"
+            android:layout_weight="1"/>
+        <!--<ImageView
+            android:id="@+id/addPlan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="6"
+            android:src="@mipmap/add"
+            android:onClick="add"/>-->
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_yauchulist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fastScrollEnabled="true"
+        android:layout_below="@+id/linearLayout01" />
+</RelativeLayout>

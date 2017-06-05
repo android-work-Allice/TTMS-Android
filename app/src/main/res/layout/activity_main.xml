@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity">
+
+    <RadioGroup
+        android:id="@+id/rg_tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            style="@style/tab_menu_item"
+            android:gravity="center"
+            android:drawableTop="@drawable/tab_menu_home"
+            android:text="影厅展示"/>
+
+        <RadioButton
+            android:id="@+id/rb_news"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_menu_news"
+            android:text="影片热映"/>
+
+        <RadioButton
+            android:id="@+id/rb_resource"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_menu_resource"
+            android:text="@string/tab_menu_resource"/>
+
+        <RadioButton
+            android:id="@+id/rb_service"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/tab_menu_service"
+            android:text="@string/tab_menu_service"/>
+
+
+    </RadioGroup>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rg_tab_bar"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e8f0f0"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout01"
+        android:orientation="horizontal"
+        android:background="@color/text_blue">
+        <ImageView
+            android:id="@+id/play_zuo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="15"
+            android:src="@mipmap/zuo"/>
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:layout_height="50dp"
+            android:textColor="@color/colorWhite"
+            android:text="座位管理   "
+            android:background="@color/text_blue"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

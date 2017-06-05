@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Allice影院</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="tab_menu_home">影厅管理</string>
+    <string name="tab_menu_news">影片管理</string>
+    <string name="tab_menu_resource">人员管理</string>
+    <string name="tab_menu_service">演出计划</string>
+</resources>
