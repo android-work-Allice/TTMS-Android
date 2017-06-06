@@ -8,17 +8,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by xx on 2017/6/4.
- *
+ * Created by xx on 2017/6/6.
  */
 
-public class PlayHttp {
-
-    private static final String SERVER_URL="http://192.168.25.1:8080/ttms_ssm/playclient/play";
+public class PlanHttp {
+    private static final String SERVER_URL="http://192.168.25.1:8080/ttms_ssm/planclient/plan";
     private static String sessionid="";
 
     @SuppressWarnings("finally")
-    public static String playList() {
+    public static String planList() {
         String result = "0";// 默认为0，表示验证失败
         try {
             String urlString = SERVER_URL;
@@ -42,7 +40,7 @@ public class PlayHttp {
             // 为输出创建BufferedReader
             BufferedReader buffer = new BufferedReader(in);
             result = buffer.readLine();
-            Log.e("playresult--------->", result);
+            Log.e("planresult--------->", result);
             in.close();
             urlConn.disconnect();
         } catch (Exception e) {

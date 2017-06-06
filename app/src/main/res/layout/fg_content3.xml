@@ -16,16 +16,16 @@
             android:gravity="center"
             android:layout_height="50dp"
             android:textColor="@color/colorWhite"
-            android:text="         人员名单 "
+            android:text=" 人员名单 "
             android:background="@color/text_blue"
             android:layout_weight="1"/>
-        <ImageView
-            android:id="@+id/addPerson"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="6"
-            android:src="@mipmap/add"
-            android:onClick="add"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/addPerson"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_weight="6"-->
+            <!--android:src="@mipmap/add"-->
+            <!--android:onClick="add"/>-->
     </LinearLayout>
 
     <ListView

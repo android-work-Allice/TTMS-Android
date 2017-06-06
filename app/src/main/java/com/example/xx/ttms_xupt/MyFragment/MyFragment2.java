@@ -2,6 +2,8 @@ package com.example.xx.ttms_xupt.MyFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,45 +34,47 @@ import java.util.List;
 
 public class MyFragment2   extends Fragment {
 
+    private View view;
     private ListView lv;
     private ImageView img;
-    String readResult;
-    static List<PlayInfo> plays;
+    private String readResult;
+    private static List<PlayInfo> plays;
+    GetplayThread t;
 
     public MyFragment2() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fg_content2,container,false);
-        GetplayThread t = new GetplayThread(plays);
+        view = inflater.inflate(R.layout.fg_content2,container,false);
+        t = new GetplayThread(plays);
         t.start();
-        try {
-            t.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        plays = t.getPlays();
-        Log.e("plays  -----",plays+"");
-        lv = (ListView) view.findViewById(R.id.lv_playlist);
-        lv.setAdapter(new MyListAdapter(plays));
-
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-                Intent intent=new Intent(getActivity(), PlayActivity.class);
-                intent.putExtra("detailPlay_id", plays.get(pos).getPlayId()+"");
-                intent.putExtra("detailPlay_name", plays.get(pos).getPlayName()+"");
-                intent.putExtra("detailPlay_type", plays.get(pos).getPlayType());
-                intent.putExtra("detailPlay_lang", plays.get(pos).getPlayLanguage());
-                intent.putExtra("detailPlay_profile", plays.get(pos).getPlayDesc());
-                startActivity(intent);
-            }
-        });
 
         Log.e("HEHE", "2日狗");
         return view;
     }
+
+    private Handler handler = new Handler() {
+        public void handleMessage(Message msg) {
+            plays = (List<PlayInfo>)msg.obj;
+            Log.e("plays  -----",plays+"");
+            lv = (ListView) view.findViewById(R.id.lv_playlist);
+            lv.setAdapter(new MyListAdapter(plays));
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+                    Intent intent=new Intent(getActivity(), PlayActivity.class);
+                    intent.putExtra("detailPlay_id", plays.get(pos).getPlayId()+"");
+                    intent.putExtra("detailPlay_name", plays.get(pos).getPlayName()+"");
+                    intent.putExtra("detailPlay_type", plays.get(pos).getPlayType());
+                    intent.putExtra("detailPlay_lang", plays.get(pos).getPlayLanguage());
+                    intent.putExtra("detailPlay_profile", plays.get(pos).getPlayDesc());
+                    startActivity(intent);
+                }
+            });
+        }
+    };
+
 
     private class MyListAdapter extends BaseAdapter {
 
@@ -117,48 +121,52 @@ public class MyFragment2   extends Fragment {
             return view;
         }
     }
-}
 
-class GetplayThread extends Thread {
+    class GetplayThread extends Thread {
 
-    List<PlayInfo> plays;
-    String readResult;
-    JSONObject jsonObject;
+        private List<PlayInfo> plays;
+        private String readResult;
+        private JSONObject jsonObject;
 
-    public GetplayThread(List<PlayInfo> plays){
-        this.plays = plays;
-    }
-
-    public List<PlayInfo> getPlays() {
-        return plays;
-    }
-
-    public void setPlays(List<PlayInfo> plays) {
-        this.plays = plays;
-    }
-
-    @Override
-    public void run() {
-        readResult = PlayHttp.userList();
-        PlayInfo playInfo = null;
-        JSONArray jsonArray = null;
-        try {
-            jsonArray = new JSONArray(readResult);
-            plays = new ArrayList<PlayInfo>(jsonArray.length()+1);
-            for(int i=0; i<jsonArray.length(); i++) {
-                playInfo= new PlayInfo();
-                jsonObject = jsonArray.getJSONObject(i);
-                playInfo.setPlayId(Integer.parseInt(jsonObject.getString("playId")));
-                playInfo.setPlayName(jsonObject.getString("playName"));
-                playInfo.setPlayType(jsonObject.getString("playType"));
-                playInfo.setPlayDesc(jsonObject.getString("playDesc"));
-                playInfo.setPlayLanguage(jsonObject.getString("playLanguage"));
-                plays.add(playInfo);
-            }
-            Log.e(" run plays ---------  ",""+plays);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        public GetplayThread(List<PlayInfo> plays){
+            this.plays = plays;
         }
-    }
 
+        public List<PlayInfo> getPlays() {
+            return plays;
+        }
+
+        public void setPlays(List<PlayInfo> plays) {
+            this.plays = plays;
+        }
+
+        @Override
+        public void run() {
+            readResult = PlayHttp.playList();
+            PlayInfo playInfo = null;
+            JSONArray jsonArray = null;
+            try {
+                jsonArray = new JSONArray(readResult);
+                plays = new ArrayList<PlayInfo>(jsonArray.length()+1);
+                for(int i=0; i<jsonArray.length(); i++) {
+                    playInfo= new PlayInfo();
+                    jsonObject = jsonArray.getJSONObject(i);
+                    playInfo.setPlayId(Integer.parseInt(jsonObject.getString("playId")));
+                    playInfo.setPlayName(jsonObject.getString("playName"));
+                    playInfo.setPlayType(jsonObject.getString("playType"));
+                    playInfo.setPlayDesc(jsonObject.getString("playDesc"));
+                    playInfo.setPlayLanguage(jsonObject.getString("playLanguage"));
+                    plays.add(playInfo);
+                }
+                Message message = new Message();
+                message.obj = plays;
+                handler.sendMessage(message);
+                Log.e(" run plays ---------  ",""+plays);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 }
+

@@ -237,7 +237,7 @@
             android:layout_marginRight="42dp"
             android:layout_marginTop="30dp"
             android:background="@color/text_blue"
-            android:onClick="clear"
+            android:onClick="personclear"
             android:text="清除用户信息"
             android:textColor="@color/colorWhite" />
 
@@ -248,7 +248,7 @@
             android:layout_marginRight="42dp"
             android:layout_marginTop="10dp"
             android:background="@color/text_blue"
-            android:onClick="update"
+            android:onClick="personupdate"
             android:text="编辑用户信息"
             android:textColor="@color/colorWhite" />
     </TableLayout>

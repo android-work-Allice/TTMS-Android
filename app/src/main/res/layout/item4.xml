@@ -10,7 +10,7 @@
         android:orientation="horizontal"
         android:layout_marginLeft="10dp">
         <TextView
-            android:id="@+id/play_title"
+            android:id="@+id/plan_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -42,7 +42,7 @@
             android:textColor="#515151"/>
 
         <TextView
-            android:id="@+id/play_leixing"
+            android:id="@+id/plan_yingting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -53,7 +53,6 @@
             android:ellipsize="end"
             android:textColor="#515151"/>
 
-        0
     </LinearLayout>
 
     <LinearLayout
@@ -65,12 +64,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="时间"
+            android:text="时间:    "
             android:textSize="16sp"
             android:ellipsize="end"
             android:textColor="#515151"/>
         <TextView
-            android:id="@+id/tv_message"
+            android:id="@+id/tv_plantime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" 拉巴巴大夫巴拉巴巴"

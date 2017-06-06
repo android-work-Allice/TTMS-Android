@@ -1,16 +1,13 @@
 package com.example.xx.ttms_xupt.Activity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.xx.ttms_xupt.R;
-import com.example.xx.ttms_xupt.util.MyOpenHelper;
 
 /**
  * Created by xx on 2017/6/1.
@@ -46,20 +43,20 @@ public class PlanActivity extends AppCompatActivity {
         tv_addr.setText(intent.getStringExtra("addr"));
     }
 
-    public void clear(View view)
-    {
-        MyOpenHelper myOpenHelper = new MyOpenHelper(getApplication());
-        SQLiteDatabase db = myOpenHelper.getWritableDatabase();
-        //返回值代表影响的行数
-        int delete = db.delete("info","name = ?",new String[]{name});
-        db.close();
-
-        if(delete > 0) {
-            Toast.makeText(getApplicationContext(),"delete "+delete+" line",Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(getApplicationContext(),"delete failure ",Toast.LENGTH_LONG).show();
-        }
-    }
+//    public void clear(View view)
+//    {
+//        MyOpenHelper myOpenHelper = new MyOpenHelper(getApplication());
+//        SQLiteDatabase db = myOpenHelper.getWritableDatabase();
+//        //返回值代表影响的行数
+//        int delete = db.delete("info","name = ?",new String[]{name});
+//        db.close();
+//
+//        if(delete > 0) {
+//            Toast.makeText(getApplicationContext(),"delete "+delete+" line",Toast.LENGTH_LONG).show();
+//        } else {
+//            Toast.makeText(getApplicationContext(),"delete failure ",Toast.LENGTH_LONG).show();
+//        }
+//    }
 
     private class MyClickListener implements View.OnClickListener{
 

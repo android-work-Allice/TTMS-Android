@@ -13,6 +13,24 @@ public class ScheduleInfo {
 	private Integer playId;
 	private String scheStartTime;
 	private String scheEndTime;
+	private String StdioName;
+	private String PlayName;
+
+	public String getStdioName() {
+		return StdioName;
+	}
+
+	public void setStdioName(String stdioName) {
+		StdioName = stdioName;
+	}
+
+	public String getPlayName() {
+		return PlayName;
+	}
+
+	public void setPlayName(String playName) {
+		PlayName = playName;
+	}
 
 	private Integer scheStatus;
 	private StdioInfo stdioInfo;
